@@ -64,37 +64,37 @@ List any external sources of data that will be used in your app.
 
 - Login Page:
 
-![Mokup-Vitrine-LoginPage](./assets/mockups/Login%20Page.svg)
+![Mokup-Vitrine-LoginPage](./src/assets/mockups/Login%20Page.svg)
 
 - Creator Profile Page:
 
-![Mokup-Vitrine-Creator Profile Page](./assets//mockups/Creator%20Profile.svg)
+![Mokup-Vitrine-Creator Profile Page](./src/assets/mockups/Creator%20Profile.svg)
 
 - Product Page:
 
-![Mokup-Vitrine-Product Page](./assets/mockups/Product%20Page.svg)
+![Mokup-Vitrine-Product Page](./src/assets/mockups/Product%20Page.svg)
 
 - Product Upload Page:
 
-![Mokup-Vitrine-Product Page](./assets/mockups/Product%20Upload%20page.svg)
+![Mokup-Vitrine-Product Page](./src/assets/mockups/Product%20Upload%20page.svg)
 
 - User/ Shoppers Home Page:
 
-![Mokup-Vitrine-Shopper Home Page](./assets/mockups/User%20Home%20Page.svg)
+![Mokup-Vitrine-Shopper Home Page](./src/assets/mockups/User%20Home%20Page.svg)
 
 - Feed:
 
-![Mokup-Vitrine-Feed](./assets/mockups/User%20Feed.svg)
+![Mokup-Vitrine-Feed](./src/assets/mockups/User%20Feed.svg)
 
 - Wish List Page:
 
-![Mokup-Vitrine-Wish List Page](./assets/mockups/User%20Wishlist.svg)
+![Mokup-Vitrine-Wish List Page](./src/assets/mockups/User%20Wishlist.svg)
 
 - **_User Flow_**
 
-![Mokup-Vitrine-userflow](./assets/mockups/Userflow_1.svg)
+![Mokup-Vitrine-userflow](./src/assets/mockups/Userflow_1.svg)
 
-![Mokup-Vitrine-userflow](./assets/mockups/Userflow_2.svg)
+![Mokup-Vitrine-userflow](./src/assets/mockups/Userflow_2.svg)
 
 ### Data
 
