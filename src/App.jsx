@@ -1,8 +1,12 @@
 import "./App.scss";
-import * as bootstrap from "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 }
 
 export default App;
