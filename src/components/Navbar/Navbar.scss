@@ -1,0 +1,16 @@
+.nav-app {
+  display: flex;
+  flex-direction: row;
+  height: 4rem;
+  background-color: lightgray;
+}
+
+.container-fluid {
+  justify-content: center;
+}
+
+.navbar-expand-sm {
+  @include mobile {
+    flex-direction: row;
+  }
+}
