@@ -8,17 +8,17 @@ export default function Navbar() {
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">
-              Home
+              Profile
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              Link
+              New Post
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">
-              Disabled
+              Messages
             </a>
           </li>
         </ul>
