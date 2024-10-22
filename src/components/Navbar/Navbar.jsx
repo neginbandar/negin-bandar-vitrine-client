@@ -1,10 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../../assets/logo/Vitrine.svg";
+import "./Navbar.scss";
 
 export default function Navbar() {
   return (
-    <nav class="navbar fixed-bottom navbar-expand-sm navbar-light bg-light ">
-      <div class="container-fluid nav-app">
+    <nav class="fixed-bottom navbar-bottom ">
+      <div class="nav-app">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">

@@ -1,28 +1,26 @@
-import productPicture from "../../assets/images/_.jpeg";
 import "./ProductPage.scss";
+import productPicture from "../../assets/images/sofa-image.png";
 import heartIcon from "../../assets/icons/heart.svg";
+import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
 
 export default function ProductPage() {
   return (
-    <div className="product-page">
+    <div className="post-page">
       <img
-        className="produc-page__image"
+        className="post-page__image"
         src={productPicture}
         alt="product-picture"
       />
-      <h2 className="product-list__title">Shop Products</h2>
-      <div className="product-card">
-        <div className="product-card__thumbnail">
-          <img src={productPicture} alt="product-thumbnail" />
-          <div className="product-card">
-            <h5>Product Name</h5>
-            <p>Product Description</p>
-            <div className="button-group">
-              <button>Shop Now</button>
-              <img className="icon-small" src={heartIcon} alt="heart-icon" />
-            </div>
-          </div>
-        </div>
+      <div className="product-list">
+        <h2 className="product-list__title">More Info</h2>
+        <p>
+          Fusce tristique vehicula ante, non hendrerit ante dictum non. Sed
+          lacinia tristique metus, vel viverra massa pulvinar vel. Proin
+          malesuada sed tellus at tempus. Mauris consectetur urna at malesuada
+          convallis. Nam ut cursus mauris, id commodo magna. Aliquam ultrices
+          luctus nisi, a ultrices est ornare in.
+        </p>
+        <ButtonGroup />
       </div>
     </div>
   );

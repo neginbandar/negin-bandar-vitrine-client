@@ -1,0 +1,15 @@
+.button-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  img {
+    height: 20px;
+    width: 20%;
+  }
+}
+
+.icon-small {
+  height: 50px;
+}

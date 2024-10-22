@@ -59,3 +59,14 @@ button {
   width: 24px;
   height: 50px;
 }
+
+ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+li {
+  display: inline-block;
+}

@@ -10,3 +10,10 @@
     }
   }
 }
+
+.product-list {
+  padding: 1rem;
+  &__title {
+    padding: 1rem 0;
+  }
+}

@@ -1,8 +1,8 @@
 .nav-top {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: inherit;
-  //   align-items: center;
+  display: fixed;
+  width: 100%;
+  height: 3rem;
+  top: 0;
 }
 
 .logo {

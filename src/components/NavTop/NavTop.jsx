@@ -3,7 +3,7 @@ import logo from "../../assets/logo/Vitrine.svg";
 
 export default function NavTop() {
   return (
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+    <nav class="nav-top  navbar-light fixed-top bg-light">
       <div class="container-fluid nav-top">
         <img className="logo" src={logo} alt="logo-vitrine" />
         <button
