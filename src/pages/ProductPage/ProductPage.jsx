@@ -11,8 +11,8 @@ export default function ProductPage() {
         src={productPicture}
         alt="product-picture"
       />
-      <div className="product-list">
-        <h2 className="product-list__title">More Info</h2>
+      <div className="product-info">
+        <h2 className="product-info__title">More Info</h2>
         <p>
           Fusce tristique vehicula ante, non hendrerit ante dictum non. Sed
           lacinia tristique metus, vel viverra massa pulvinar vel. Proin
