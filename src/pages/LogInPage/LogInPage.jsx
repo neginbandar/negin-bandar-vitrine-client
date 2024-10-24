@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 export default function LogInPage() {
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const port = import.meta.env.VITE_PORT;
   const backendURL = import.meta.env.VITE_BACKEND_URL;
@@ -64,7 +64,7 @@ export default function LogInPage() {
             value={username}
             onChange={handleUsernameChange}
           />
-          <label for="floatingInput">Username</label>
+          <label htmlFor="floatingInput">Username</label>
         </div>
         <div className="form-floating">
           <input
@@ -75,7 +75,7 @@ export default function LogInPage() {
             value={password}
             onChange={handlePasswordChange}
           />
-          <label for="floatingPassword">Password</label>
+          <label htmlFor="floatingPassword">Password</label>
         </div>
         <div className="form-check text-start my-3">
           <input
@@ -84,7 +84,7 @@ export default function LogInPage() {
             value="remember-me"
             id="flexCheckDefault"
           />
-          <label className="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Remember me
           </label>
         </div>

@@ -10,13 +10,15 @@ import LogInPage from "./pages/LogInPage/LogInPage.jsx";
 import PostPage from "./pages/PostPage/PostPage.jsx";
 
 function App() {
+  const port = import.meta.env.VITE_PORT;
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
   return (
     <>
       <BrowserRouter>
         <NavTop />
         <Routes>
           <Route path="/" element={<LogInPage />} />
-          <Route path="/store-profile" element={<StoreProfilePage />} />
+          <Route path="/users/:userId" element={<StoreProfilePage />} />
           <Route path="/posts" element={<PostPage />} />
           <Route path="/products" element={<ProductPage />} />
           <Route path="/posts/upload" element={<PostUploadPage />} />

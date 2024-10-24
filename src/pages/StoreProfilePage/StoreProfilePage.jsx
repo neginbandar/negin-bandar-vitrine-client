@@ -1,10 +1,8 @@
 import StoreProfile from "../../components/StoreProfile/StoreProfile";
 import ProductThumbnail from "../../components/ProductThumbnail/ProductThumbnail";
+import { useParams } from "react-router-dom";
 
 export default function StoreProfilePage() {
-  const port = import.meta.env.VITE_PORT;
-  const backendURL = import.meta.env.VITE_BACKEND_URL;
-
   return (
     <>
       <StoreProfile />
