@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LogInPage />} />
           <Route path="/users/:userId" element={<StoreProfilePage />} />
-          <Route path="/posts" element={<PostPage />} />
+          <Route path="/posts/:userId" element={<PostPage />} />
           <Route path="/products" element={<ProductPage />} />
           <Route path="/posts/upload" element={<PostUploadPage />} />
         </Routes>

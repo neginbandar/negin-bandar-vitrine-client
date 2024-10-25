@@ -3,6 +3,15 @@
   height: 150px;
   background-image: url("../../assets/images/cover1.png");
   position: relative;
+  &__message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 28%;
+  }
 }
 
 .profile {

@@ -4,12 +4,13 @@ import StoreProfilePage from "../../pages/StoreProfilePage/StoreProfilePage";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  const userId = 2;
   return (
     <nav className="fixed-bottom navbar-bottom ">
       <div className="nav-app">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link to="/store-profile">Profile</Link>
+            <Link to={`/users/${userId}`}>Profile</Link>
           </li>
           <li className="nav-item">
             <Link to="/posts/upload">New Post</Link>
