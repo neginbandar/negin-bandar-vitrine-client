@@ -13,7 +13,7 @@ export default function Navbar() {
             <Link to={`/users/${userId}`}>Profile</Link>
           </li>
           <li className="nav-item">
-            <Link to="/posts/upload">New Post</Link>
+            <Link to={`/users/${userId}/upload`}>New Post</Link>
           </li>
           <li className="nav-item">
             <a className="nav-link disabled" aria-disabled="true">

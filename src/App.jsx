@@ -21,7 +21,7 @@ function App() {
           <Route path="/users/:userId" element={<StoreProfilePage />} />
           <Route path="/posts/:userId" element={<PostPage />} />
           <Route path="/products" element={<ProductPage />} />
-          <Route path="/posts/upload" element={<PostUploadPage />} />
+          <Route path="/users/:userId/upload" element={<PostUploadPage />} />
         </Routes>
         <Navbar />
       </BrowserRouter>
