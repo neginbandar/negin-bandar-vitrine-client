@@ -60,7 +60,7 @@ export default function PostUploadPage() {
         className="post-upload_form"
         onSubmit={uploadImage}
       >
-        <div className="mb-3">
+        <div className="mb-3 post-upload__field">
           <label htmlFor="Upload">Upload Image</label>
           <input
             type="file"
@@ -69,17 +69,17 @@ export default function PostUploadPage() {
             onChange={handleImageChange}
           />
           <button type="upload" className="button" onClick={uploadImage}>
-            Upload
+            Upload Photo
           </button>
         </div>
       </form>
       <h4>Add Product</h4>
       <AddProduct />
       {/* <h3>Product # {products.index} </h3> */}
-      {products}
       <button className="button" type="button" onClick={addProductHandler}>
         Add Product
       </button>
+      {products}
       <button className="button" type="submit">
         Submit Post
       </button>

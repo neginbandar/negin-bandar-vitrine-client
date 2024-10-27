@@ -18,20 +18,22 @@ Many bloggers and content creators currently promote products through various pl
 
 **2. Regular Users :** Shoppers and fans of content creators who explore products and make purchases. They will use the app to browse, save products to wish lists, and track affiliate links for easy access.
 
-**In this project I will be focusing on features for user type : Content Creators.**
+**For capstone deadline I will be building the features for type Content Creators.**
 
 ### Features
 
-- User login (for Creator user type) : mock login for creators.
-- Creator Profile: A centralized area for creators to add products, manage links, and view analytics on user saves and likes.
-- Product Listings: An organized view of products showcased by creators, complete with descriptions, images, and affiliate links.
-- Social Sharing: Ability for users to share their wish lists or favorite products on social media.
+- User login (for Creator user type) : login for creators.
+- Creator Profile: A centralized area for creators to add posts , add multiple products for each post, manage links , messages, etc.
+- Post page : full screen view of post with product details and category.
+- Product page: full screen view of product details and link to purchase.
+- Create new post : feature to create new post with multiple products.
 
 **Nice to have**
 
-- User login (for Shopper user type) : mock login for shoppers.
-- Feed : Users can easily search for specific products or choose a category.
-- Wish List Functionality: Users can save products they are interested in for future reference.
+- login and features for "shopper" user type side.
+- Home page: where users can search for products by category.
+- Feed : search results from homepage.
+- Wish-list Functionality: Users can save posts for future reference.
 
 ## Implementation
 
@@ -41,26 +43,29 @@ Many bloggers and content creators currently promote products through various pl
 - JavaScript
 - Bootstrap
 - Node.js with Express
-- MySQL for database management
+- JSON for database management
 - Client Libraries:
   - React Router for navigation
   - Axios for API requests
 - Server Libraries:
-  - Knex for SQL query building
   - Express for server setup
+
+**Check for dependencies below.**
 
 ### APIs
 
 List any external sources of data that will be used in your app.
 
-- TBD
+- no external api is used.
 
 ### Sitemap
 
 - Sign up / Login
-  - Creator / Store Profile
+  - Creator Profile
+  - Post Page
   - Product Page
-  - Product Upload Page
+  - Post Upload Page
+  - Messages Page
 - User side
   - User/ Shoppers Home Page (Search bar)
   - Feed
@@ -104,17 +109,22 @@ List any external sources of data that will be used in your app.
 
 ### Data
 
-- Work in progress
+![Vitrine-Database-Schema](./src/assets/db/db_schema.svg)\
 
-![Vitrine-Database-Schema](./src/assets/db/db_schema.svg)
+Datasets are created in three json files.
+
+- users.json
+- posts.json
+- categories.json
 
 ### Endpoints
 
 List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
 
-- POST/posts
-- GET /posts/:id
-- POST/product/:id
+- GET/users/:userid
+- GET /posts/:userid
+- POST/posts/:userid
+- PUT/posts/:userid
 
 **Nice to have**
 
@@ -157,3 +167,23 @@ Your project will be marked based on what you committed to in the above document
 - DELETE/users/:id/wishlist
 - More TBD
 - Notifications: Alerts for users when products on their wish lists go on sale or are featured by their favorite creators.
+
+## Dependencies
+
+- client:
+  "@popperjs/core": "^2.11.8",
+  "@types/node": "^22.7.6",
+  "axios": "^1.7.7",
+  "bootstrap": "^5.3.3",
+  "bootstrap-icons": "^1.11.3",
+  "multer": "^1.4.5-lts.1",
+  "react": "^18.3.1",
+  "react-bootstrap": "^2.10.5",
+  "react-dom": "^18.3.1",
+  "react-router-dom": "^6.27.0"
+- server:
+  "cors": "^2.8.5",
+  "dotenv": "^16.4.5",
+  "express": "^4.21.1",
+  "fs": "^0.0.1-security",
+  "multer": "^1.4.5-lts.1"

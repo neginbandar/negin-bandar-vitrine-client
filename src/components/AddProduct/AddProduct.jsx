@@ -121,29 +121,6 @@ export default function AddProduct() {
     }
   };
 
-  //   const postSubmitHandler = async (e) => {
-  //     e.preventDefault();
-
-  //     if (isFormValid()) {
-  //       try {
-  //         const newProduct = {
-  //           product_name: productName,
-  //           product_description: productDescription,
-  //           discount_code: discountCode,
-  //           product_category: productCategory,
-  //           product_link: productLink,
-  //         };
-  //         console.log(newPost);
-  //         postNewPost(newPost);
-  //         console.log("Upload success:", data);
-  //       } catch (error) {
-  //         console.error("Upload error:", error);
-  //       }
-  //     } else {
-  //       console.error("Form validation failed");
-  //     }
-  //   };
-
   useEffect(() => {
     getCategories();
   }, []);
