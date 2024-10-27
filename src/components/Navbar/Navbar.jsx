@@ -1,25 +1,22 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../../assets/logo/Vitrine.svg";
+import "./Navbar.scss";
+import StoreProfilePage from "../../pages/StoreProfilePage/StoreProfilePage";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  const userId = 2;
   return (
-    <nav class="navbar fixed-bottom navbar-expand-sm navbar-light bg-light ">
-      <div class="container-fluid nav-app">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
-              Home
-            </a>
+    <nav className="fixed-bottom navbar-bottom ">
+      <div className="nav-app">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link to={`/users/${userId}`}>Profile</Link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              Link
-            </a>
+          <li className="nav-item">
+            <Link to={`/users/${userId}/upload`}>New Post</Link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">
-              Disabled
-            </a>
+          <li className="nav-item">
+            <Link to={`/users/${userId}/messages`}>Messages</Link>
           </li>
         </ul>
       </div>

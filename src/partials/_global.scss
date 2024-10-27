@@ -59,3 +59,35 @@ button {
   width: 24px;
   height: 50px;
 }
+
+ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+li {
+  display: inline-block;
+}
+
+.button {
+  background-color: $purple-primary;
+  color: white;
+  border: none;
+  width: 85px;
+  height: 2rem;
+  border-radius: 4px;
+  text-align: center;
+  margin: 0 1rem;
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.white-space {
+  width: 100%;
+  height: 15rem;
+}

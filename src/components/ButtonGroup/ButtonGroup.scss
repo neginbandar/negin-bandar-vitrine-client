@@ -1,0 +1,16 @@
+@use "../../partials/variables" as *;
+
+.button-group {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 1rem;
+  img {
+    height: 20px;
+    width: 20%;
+  }
+}
+.icon-small {
+  height: 50px;
+}

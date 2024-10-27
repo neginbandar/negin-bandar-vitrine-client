@@ -1,8 +1,17 @@
 .cover-photo {
   width: 100%;
   height: 150px;
-  background-image: url("../../assets/images/cover1.jpg");
+  background-image: url("../../assets/images/cover1.png");
   position: relative;
+  &__message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 28%;
+  }
 }
 
 .profile {
@@ -17,9 +26,10 @@
   &__pic {
     width: 80px;
     height: 80px;
+    border: 1px solid lightgray;
     border-radius: 50px;
     position: absolute;
-    top: 130px;
+    top: 10.9375rem;
     left: 24px;
     object-fit: cover;
     object-position: center;
@@ -30,13 +40,13 @@
   }
   &__name {
     position: absolute;
-    top: 155px;
+    top: 200px;
     left: 120px;
   }
   &__description {
     width: 60%;
     position: absolute;
-    top: 190px;
+    top: 240px;
     left: 120px;
   }
 }
