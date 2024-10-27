@@ -1,11 +1,16 @@
 import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function LogInPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [userId, setUserId] = useState("");
 
   const port = import.meta.env.VITE_PORT;
   const backendURL = import.meta.env.VITE_BACKEND_URL;
+
+  const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -15,11 +20,18 @@ export default function LogInPage() {
     setPassword(e.target.value);
   };
 
-  const findUser = async (user) => {
+  const findUser = async (username, password) => {
     try {
-      const { data } = await axios.get(
-        `${backendURL}:${port}/users/${username}`
+      const { data } = await axios.get(`${backendURL}:${port}/users`);
+      const user = data.find(
+        (user) => user.username === username && user.password === password
       );
+      if (user) {
+        setUserId(user.user_id);
+        navigate(`/users/${user.user_id}`);
+      } else {
+        alert("Invalid username or password");
+      }
     } catch (error) {
       console.error("Error  fetching users", error);
     }
@@ -29,13 +41,6 @@ export default function LogInPage() {
     if (!username || !password) {
       return false;
     }
-    if (!isUsernameValid()) {
-      return false;
-    }
-    if (!isPasswordValid()) {
-      return false;
-    }
-
     console.log(username, password);
     return true;
   };
@@ -47,7 +52,7 @@ export default function LogInPage() {
         username: username,
         password: password,
       };
-      findUser(user);
+      findUser(username, password);
     }
   };
 

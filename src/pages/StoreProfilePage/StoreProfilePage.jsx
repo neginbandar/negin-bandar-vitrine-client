@@ -16,7 +16,6 @@ export default function StoreProfilePage() {
         const { data } = await axios.get(
           `${backendURL}:${port}/users/${userId}`
         );
-        console.log(data);
         const user = data;
         setProfile(user);
       } catch (error) {

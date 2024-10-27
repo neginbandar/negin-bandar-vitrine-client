@@ -13,7 +13,6 @@ export default function StoreProfile({ profile }) {
   const [profileDescription, setProfileDescription] = useState("");
 
   const getProfileInfo = (profile) => {
-    console.log(profile);
     if (profile) {
       setProfilePic(profile.profile_picture);
       setProfileName(`${profile.first_name} ${profile.last_name}`);
@@ -30,7 +29,7 @@ export default function StoreProfile({ profile }) {
   return (
     <div className="profile">
       <div className="cover-photo">
-        <h3 className="cover-photo__message">Welcome to my store!</h3>
+        <h3 className="cover-photo__message"></h3>
       </div>
       <div className="profile__info">
         <div className="profile__pic">

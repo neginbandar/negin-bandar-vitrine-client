@@ -8,6 +8,7 @@ import ProductPage from "./pages/ProductPage/ProductPage";
 import PostUploadPage from "./pages/PostUploadPage/PostUploadPage";
 import LogInPage from "./pages/LogInPage/LogInPage.jsx";
 import PostPage from "./pages/PostPage/PostPage.jsx";
+import MessagesPage from "./pages/MessagesPage/MessagesPage.jsx";
 
 function App() {
   const port = import.meta.env.VITE_PORT;
@@ -22,6 +23,7 @@ function App() {
           <Route path="/posts/:userId" element={<PostPage />} />
           <Route path="/products" element={<ProductPage />} />
           <Route path="/users/:userId/upload" element={<PostUploadPage />} />
+          <Route path="users/:userId/messages" element={<MessagesPage />} />
         </Routes>
         <Navbar />
       </BrowserRouter>

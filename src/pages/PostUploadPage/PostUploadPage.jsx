@@ -51,22 +51,6 @@ export default function PostUploadPage() {
     }
   };
 
-  // const postSubmitHandler = (e) => {
-  //   e.preventDefault();
-  //   // const newPost = {
-  //   //   user_id: userId,
-  //   //   post_picture: postImageUrl,
-  //   // created_at: new Date(),
-  //   // };
-  //   // console.log(newPost);
-  //   // try {
-  //   //   const response = await axios.post(`${backendURL}:${port}/posts`, newPost);
-  //   //   console.log("Post created successfully:", response.data);
-  //   // } catch (error) {
-  //   //   console.log("Error creating post:", error);
-  //   // }
-  // };
-
   return (
     <div className="post-upload__container">
       <h3 className="post-upload__title">Create Post</h3>

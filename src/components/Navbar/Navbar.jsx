@@ -16,9 +16,7 @@ export default function Navbar() {
             <Link to={`/users/${userId}/upload`}>New Post</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link disabled" aria-disabled="true">
-              Messages
-            </a>
+            <Link to={`/users/${userId}/messages`}>Messages</Link>
           </li>
         </ul>
       </div>
