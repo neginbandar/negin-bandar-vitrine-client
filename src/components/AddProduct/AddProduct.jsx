@@ -1,21 +1,26 @@
 import "./AddProduct.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function AddProduct() {
   const port = import.meta.env.VITE_PORT;
   const backendURL = import.meta.env.VITE_BACKEND_URL;
+  const [categories, setCategories] = useState([]);
   const [productImage, setProductImage] = useState("");
   const [productCategory, setProductCategory] = useState("");
   const [productLink, setProductLink] = useState("");
   const [productName, setProductName] = useState("");
   const [productDescription, setProductDescription] = useState("");
   const [discountCode, setDiscountCode] = useState("");
-  const [categories, setCategories] = useState([]);
+  const { userId } = useParams();
 
-  const uploadImage = async (e) => {
+  const submitProduct = async (e) => {
     e.preventDefault();
+    if (!isFormValid()) {
+      alert("Please fill in all fields");
+      return;
+    }
     const formData = new FormData();
     formData.append("product-image", productImage);
     try {
@@ -24,8 +29,28 @@ export default function AddProduct() {
         formData
       );
       console.log("Image uploaded successfully", response.data);
+      const { data: posts } = await axios.get(`${backendURL}:${port}/posts`);
+      const userPosts = posts.filter((post) => post.user_id === userId);
+      console.log(userPosts);
+      if (userPosts.length === 0) {
+        console.error("No posts found for user:", userId);
+        return;
+      }
+
+      const postToUpdate = userPosts[userPosts.length - 1];
+      const newProduct = {
+        product_id: (postToUpdate.products.length + 1).toString(),
+        product_name: productName,
+        discount_code: discountCode,
+        product_category: productCategory,
+        product_link: productLink,
+        product_picture: `${backendURL}:${port}/${response.data.productImageUrl}`,
+      };
+
+      postToUpdate.products.push(newProduct);
+      await postNewProduct(postToUpdate);
     } catch (error) {
-      console.log("Error uploading image", error);
+      console.error("Error uploading image", error);
     }
   };
 
@@ -53,7 +78,7 @@ export default function AddProduct() {
   const getCategories = async () => {
     try {
       const { data } = await axios.get(`${backendURL}:${port}/categories`);
-      const categoryList = data.map((categoryName) => categoryName.category);
+      const categoryList = data;
       const removeDups = [...new Set(categoryList)];
       setCategories(removeDups);
     } catch (error) {
@@ -61,6 +86,7 @@ export default function AddProduct() {
       setError(error.message);
     }
   };
+
   const isFormValid = () => {
     if (
       !productCategory ||
@@ -74,44 +100,49 @@ export default function AddProduct() {
     return true;
   };
 
-  const postNewPost = async (newPost) => {
-    try {
-      const { data } = await axios.post(
-        `${backendURL}:${port}/posts`,
-        newPost,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-    } catch (error) {
-      console.log("Error posting new post");
-    }
-  };
-
-  const postSubmitHandler = async (e) => {
-    e.preventDefault();
-
+  const postNewProduct = async (updatedPost) => {
     if (isFormValid()) {
       try {
-        const newPost = {
-          product_name: productName,
-          product_description: productDescription,
-          discount_code: discountCode,
-          product_category: productCategory,
-          product_link: productLink,
-        };
-        console.log(newPost);
-        postNewPost(newPost);
-        console.log("Upload success:", data);
+        const { data } = await axios.put(
+          `${backendURL}:${port}/posts`,
+          updatedPost,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log("Product added successfully:", data);
       } catch (error) {
-        console.error("Upload error:", error);
+        console.log("Error adding new product");
       }
     } else {
-      console.error("Form validation failed");
+      alert("Please fill in all fields");
     }
   };
+
+  //   const postSubmitHandler = async (e) => {
+  //     e.preventDefault();
+
+  //     if (isFormValid()) {
+  //       try {
+  //         const newProduct = {
+  //           product_name: productName,
+  //           product_description: productDescription,
+  //           discount_code: discountCode,
+  //           product_category: productCategory,
+  //           product_link: productLink,
+  //         };
+  //         console.log(newPost);
+  //         postNewPost(newPost);
+  //         console.log("Upload success:", data);
+  //       } catch (error) {
+  //         console.error("Upload error:", error);
+  //       }
+  //     } else {
+  //       console.error("Form validation failed");
+  //     }
+  //   };
 
   useEffect(() => {
     getCategories();
@@ -123,7 +154,7 @@ export default function AddProduct() {
         method="post"
         encType="multipart/form-data"
         className="post-upload_form"
-        onSubmit={postSubmitHandler}
+        onSubmit={submitProduct}
       >
         <div className="mb-3">
           <label htmlFor="Upload">Upload Image</label>
@@ -133,9 +164,6 @@ export default function AddProduct() {
             name="product-image"
             onChange={handleImageChange}
           />
-          <button type="upload" className="button" onClick={uploadImage}>
-            Upload
-          </button>
         </div>
         <div className="mb-3">
           <label htmlFor="product-name">Product Name</label>
@@ -195,6 +223,9 @@ export default function AddProduct() {
             onChange={handleProductLinkChange}
           />
         </div>
+        <button type="upload" className="button" onClick={submitProduct}>
+          Submit Product
+        </button>
       </form>
     </div>
   );

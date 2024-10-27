@@ -10,6 +10,7 @@ export default function PostUploadPage() {
   const backendURL = import.meta.env.VITE_BACKEND_URL;
   const [postImage, setPostImage] = useState("");
   const [products, setProducts] = useState([]);
+  //const [postImageUrl, setPostImageUrl] = useState("");
   const { userId } = useParams();
 
   const addProductHandler = () => {
@@ -20,7 +21,16 @@ export default function PostUploadPage() {
     setPostImage(e.target.files[0]);
   };
 
+  const addNewPost = async (newPost) => {
+    try {
+      const response = await axios.post(`${backendURL}:${port}/posts`, newPost);
+    } catch (error) {
+      console.log("Error adding new post");
+    }
+  };
+
   const uploadImage = async (e) => {
+    e.preventDefault();
     const formData = new FormData();
     formData.append("post-image", postImage);
     try {
@@ -28,26 +38,34 @@ export default function PostUploadPage() {
         `${backendURL}:${port}/uploads`,
         formData
       );
-      console.log("Image upload success:", response.data);
+      console.log("Image upload success:", response);
+      // setPostImageUrl(response.data.postImageUrl);
+      const newPost = {
+        user_id: userId,
+        post_picture: `${backendURL}:${port}/${response.data.postImageUrl}`,
+        // created_at: new Date(),
+      };
+      addNewPost(newPost);
     } catch (error) {
       console.log("Error uploading image:", error);
     }
   };
 
-  const postSubmitHandler = (e) => {
-    e.preventDefault();
-    const newPost = {
-      user_id: userId,
-      // created_at: new Date(),
-    };
-    // console.log(newPost);
-    // try {
-    //   const response = await axios.post(`${backendURL}:${port}/posts`, newPost);
-    //   console.log("Post created successfully:", response.data);
-    // } catch (error) {
-    //   console.log("Error creating post:", error);
-    // }
-  };
+  // const postSubmitHandler = (e) => {
+  //   e.preventDefault();
+  //   // const newPost = {
+  //   //   user_id: userId,
+  //   //   post_picture: postImageUrl,
+  //   // created_at: new Date(),
+  //   // };
+  //   // console.log(newPost);
+  //   // try {
+  //   //   const response = await axios.post(`${backendURL}:${port}/posts`, newPost);
+  //   //   console.log("Post created successfully:", response.data);
+  //   // } catch (error) {
+  //   //   console.log("Error creating post:", error);
+  //   // }
+  // };
 
   return (
     <div className="post-upload__container">
@@ -56,7 +74,7 @@ export default function PostUploadPage() {
         method="post"
         encType="multipart/form-data"
         className="post-upload_form"
-        onSubmit={postSubmitHandler}
+        onSubmit={uploadImage}
       >
         <div className="mb-3">
           <label htmlFor="Upload">Upload Image</label>
