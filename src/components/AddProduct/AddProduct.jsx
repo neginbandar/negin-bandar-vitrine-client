@@ -200,7 +200,11 @@ export default function AddProduct() {
             onChange={handleProductLinkChange}
           />
         </div>
-        <button type="upload" className="button" onClick={submitProduct}>
+        <button
+          type="submit"
+          className="button button--small"
+          onClick={submitProduct}
+        >
           Submit Product
         </button>
       </form>

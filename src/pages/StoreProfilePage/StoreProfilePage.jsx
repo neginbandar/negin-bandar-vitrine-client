@@ -31,6 +31,7 @@ export default function StoreProfilePage() {
     <>
       <StoreProfile profile={profile} />
       <PostThumbnail />
+      <div className="white-space"></div>
     </>
   );
 }

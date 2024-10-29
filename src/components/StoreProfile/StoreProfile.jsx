@@ -35,8 +35,10 @@ export default function StoreProfile({ profile }) {
         <div className="profile__pic">
           <img src={profilePic} alt="profie-picture" />
         </div>
-        <h2 className="profile__name">{profileName}</h2>
-        <p className="profile__description">{profileDescription}</p>
+        <div className="profile__content">
+          <h2 className="profile__name">{profileName}</h2>
+          <p className="profile__description">{profileDescription}</p>
+        </div>
       </div>
     </div>
   );

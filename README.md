@@ -126,11 +126,6 @@ List endpoints that your server will implement, including HTTP methods, paramete
 - POST/posts/:userid
 - PUT/posts/:userid
 
-**Nice to have**
-
-- POST/users/:id/whishlist
-- DELETE/users/:id/wishlist
-- More TBD
 
 ## Roadmap
 
@@ -148,9 +143,10 @@ capstone due date.
    - User Login
 
 4. Work on database architecture
-5. Set up navigation
+5. Set up states
 6. Set up routes in backend
-7. Set up states for each page
+7. Set up navigation
+
 
 ---
 

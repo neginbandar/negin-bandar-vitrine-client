@@ -10,6 +10,7 @@ export default function PostThumbnail() {
   const { userId } = useParams();
   const [posts, setPosts] = useState([]);
   const [postPics, setPostPics] = useState([]);
+  const [postId, setPostId] = useState();
 
   const getPosts = async (userId) => {
     try {
@@ -27,6 +28,18 @@ export default function PostThumbnail() {
       console.error(error);
     }
   };
+
+  const getPostId = async (userId, postImage) => {
+    try {
+      const { data } = await axios.get(`${backendURL}:${port}/posts/${userId}`);
+      const posts = data;
+      const post = posts.find((post) => post.post_picture === postImage);
+      setPostId(post.post_id);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     if (userId) {
       getPosts(userId);
@@ -34,12 +47,17 @@ export default function PostThumbnail() {
     }
   }, [userId]);
 
+  const clickHandler = (e) => {
+    const postImage = e.target.src;
+    getPostId(userId, postImage);
+  };
+
   return (
     <div className="product__row">
       {postPics.map((postPic, index) => (
-        <div key={index} className="product__thumbnail">
-          <Link to={`/posts/${userId}`}>
-            <img src={postPic || productImage} alt={`Post ${index + 1}`} />
+        <div key={index} className="product__thumbnail" onClick={clickHandler}>
+          <Link to={`/posts/${userId}/${postId}`}>
+            <img src={postPic || productImage} alt={`post ${index + 1}`} />
           </Link>
         </div>
       ))}
