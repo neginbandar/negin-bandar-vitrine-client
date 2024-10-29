@@ -16,7 +16,7 @@
 
   &__field {
     width: 100%;
-    height: 100px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -30,8 +30,12 @@
   * {
     align-items: center;
   }
-  width: 90%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.form-control-file {
+  width: 100%;
 }

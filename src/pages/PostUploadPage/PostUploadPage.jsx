@@ -10,7 +10,6 @@ export default function PostUploadPage() {
   const backendURL = import.meta.env.VITE_BACKEND_URL;
   const [postImage, setPostImage] = useState("");
   const [products, setProducts] = useState([]);
-  //const [postImageUrl, setPostImageUrl] = useState("");
   const { userId } = useParams();
 
   const addProductHandler = () => {
@@ -39,11 +38,10 @@ export default function PostUploadPage() {
         formData
       );
       console.log("Image upload success:", response);
-      // setPostImageUrl(response.data.postImageUrl);
+
       const newPost = {
         user_id: userId,
         post_picture: `${backendURL}:${port}/${response.data.postImageUrl}`,
-        // created_at: new Date(),
       };
       addNewPost(newPost);
     } catch (error) {
@@ -60,23 +58,30 @@ export default function PostUploadPage() {
         className="post-upload_form"
         onSubmit={uploadImage}
       >
-        <div className="mb-3 post-upload__field">
+        <div className="post-upload__field">
           <label htmlFor="Upload">Upload Image</label>
           <input
             type="file"
-            className="form-control-file"
+            className="form-control-file "
             name="post-image"
             onChange={handleImageChange}
           />
-          <button type="upload" className="button" onClick={uploadImage}>
+          <button
+            type="upload"
+            className="button button--small"
+            onClick={uploadImage}
+          >
             Upload Photo
           </button>
         </div>
       </form>
       <h4>Add Product</h4>
       <AddProduct />
-      {/* <h3>Product # {products.index} </h3> */}
-      <button className="button" type="button" onClick={addProductHandler}>
+      <button
+        className="button button--small"
+        type="button "
+        onClick={addProductHandler}
+      >
         Add Product
       </button>
       {products}

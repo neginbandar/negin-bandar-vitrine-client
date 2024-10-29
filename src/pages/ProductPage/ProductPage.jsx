@@ -22,6 +22,7 @@ export default function ProductPage() {
         </p>
         <ButtonGroup />
       </div>
+      <div className="white-space"></div>
     </div>
   );
 }
