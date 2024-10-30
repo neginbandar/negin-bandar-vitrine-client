@@ -28,7 +28,11 @@ export default function LogInPage() {
       );
       if (user) {
         setUserId(user.user_id);
-        navigate(`/users/${user.user_id}`);
+        if (user.user_type === "creator") {
+          navigate(`/users/${user.user_id}`);
+        } else if (user.user_type === "shopper") {
+          navigate(`/users/${user.user_id}/feed`);
+        }
       } else {
         alert("Invalid username or password");
       }

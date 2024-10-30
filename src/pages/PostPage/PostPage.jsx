@@ -18,11 +18,12 @@ export default function PostPage() {
         `${backendURL}:${port}/posts/${userId}/${postId}`
       );
       const post = data;
-      setPost(post);
+      setPost(data);
       console.log(post, "post");
-      if (post) {
-        const allProducts = post.products;
+      if (data) {
+        const allProducts = data.products;
         setProducts(allProducts);
+        console.log(products);
       } else {
         console.log("Product picture not found");
       }

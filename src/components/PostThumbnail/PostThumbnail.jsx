@@ -1,6 +1,6 @@
 import "./PostThumbnail.scss";
 import productImage from "../../assets/images/_.jpeg";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -10,7 +10,7 @@ export default function PostThumbnail() {
   const { userId } = useParams();
   const [posts, setPosts] = useState([]);
   const [postPics, setPostPics] = useState([]);
-  const [postId, setPostId] = useState();
+  const navigate = useNavigate();
 
   const getPosts = async (userId) => {
     try {
@@ -29,36 +29,27 @@ export default function PostThumbnail() {
     }
   };
 
-  const getPostId = async (userId, postImage) => {
-    try {
-      const { data } = await axios.get(`${backendURL}:${port}/posts/${userId}`);
-      const posts = data;
-      const post = posts.find((post) => post.post_picture === postImage);
-      setPostId(post.post_id);
-    } catch (error) {
-      console.error(error);
+  const clickHandler = (e) => {
+    const postImage = e.target.src;
+    const post = posts.find((post) => post.post_picture === postImage);
+    if (post) {
+      const postId = post.post_id;
+      navigate(`/posts/${userId}/${postId}`);
+    } else {
+      console.log("Post ID not found for this image.");
     }
   };
-
   useEffect(() => {
     if (userId) {
       getPosts(userId);
-      console.log(posts, postPics);
     }
   }, [userId]);
-
-  const clickHandler = (e) => {
-    const postImage = e.target.src;
-    getPostId(userId, postImage);
-  };
 
   return (
     <div className="product__row">
       {postPics.map((postPic, index) => (
         <div key={index} className="product__thumbnail" onClick={clickHandler}>
-          <Link to={`/posts/${userId}/${postId}`}>
-            <img src={postPic || productImage} alt={`post ${index + 1}`} />
-          </Link>
+          <img src={postPic || productImage} alt="post image" />
         </div>
       ))}
     </div>
