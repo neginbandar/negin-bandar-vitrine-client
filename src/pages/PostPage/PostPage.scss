@@ -1,6 +1,7 @@
 .post-page {
   display: flex;
   flex-direction: column;
+  height: auto;
   &__image {
     width: 100%;
     height: auto;
@@ -16,4 +17,5 @@
   &__title {
     padding: 1rem 0;
   }
+  margin-bottom: 100px;
 }

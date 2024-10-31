@@ -1,7 +1,7 @@
 import "./FeedPage.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import PostFeed from "../../components/PostFeed/PostFeed";
+import PostThumbFeed from "../../components/PostThumbFeed/PostThumbFeed.jsx";
 
 export default function FeedPage() {
   const port = import.meta.env.VITE_PORT;
@@ -77,7 +77,7 @@ export default function FeedPage() {
           Search
         </button>
       </div>
-      {showPosts && <PostFeed posts={posts} />}
+      {showPosts && <PostThumbFeed posts={posts} />}
     </div>
   );
 }

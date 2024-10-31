@@ -49,7 +49,7 @@ export default function PostPage() {
       />
       <div className="product-list">
         <h2 className="product-list__title">Shop Products</h2>
-        <ProductCard products={products} />
+        <ProductCard products={products} userId={userId} postId={postId} />
       </div>
       <div className="white-space"></div>
     </div>

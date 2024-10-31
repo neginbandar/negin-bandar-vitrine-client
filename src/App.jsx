@@ -22,11 +22,15 @@ function App() {
           <Route path="/" element={<LogInPage />} />
           <Route path="/users/:userId" element={<StoreProfilePage />} />
           <Route path="/posts/:userId/:postId" element={<PostPage />} />
-          <Route path="/products" element={<ProductPage />} />
+          <Route
+            path="/posts/:userId/:postId/:productId"
+            element={<ProductPage />}
+          />
           <Route path="/users/:userId/upload" element={<PostUploadPage />} />
           <Route path="users/:userId/messages" element={<MessagesPage />} />
           <Route path="/users/:userId/feed" element={<FeedPage />} />
         </Routes>
+        <div className="white-space"></div>
         <Navbar />
       </BrowserRouter>
     </>
