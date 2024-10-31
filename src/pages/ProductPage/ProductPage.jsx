@@ -41,11 +41,13 @@ export default function ProductPage() {
           <img src={heartIcon} alt="heart-icon" />
         </div>
         <p>{product.product_description}</p>
+        <p className="product-info__discount">
+          Discount code: {product.discount_code}
+        </p>
         <Link to={product.product_link}>
           <button className="button">Shop Now</button>
         </Link>
       </div>
-      <div className="white-space"></div>
     </div>
   );
 }

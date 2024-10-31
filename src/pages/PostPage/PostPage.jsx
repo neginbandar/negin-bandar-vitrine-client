@@ -51,7 +51,6 @@ export default function PostPage() {
         <h2 className="product-list__title">Shop Products</h2>
         <ProductCard products={products} userId={userId} postId={postId} />
       </div>
-      <div className="white-space"></div>
     </div>
   );
 }

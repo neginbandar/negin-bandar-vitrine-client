@@ -22,9 +22,11 @@ export default function ProductCard({ postId, products, userId }) {
             alt={product.product_name}
           />
           <div className="product-card__info">
-            <h3>{product.product_name}</h3>
+            <div className="product-card__header">
+              <h3>{product.product_name}</h3>
+              <img src={heartIcon} className="icon-small" />
+            </div>
             <p>{product.product_description}</p>
-            <img src={heartIcon} className="icon-small" />
             <button
               className="button"
               key={`button-group-${product.product_id}`}
