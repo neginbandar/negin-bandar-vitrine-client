@@ -46,9 +46,9 @@ export default function PostThumbnail() {
   }, [userId]);
 
   return (
-    <div className="product__row">
+    <div className="post__row">
       {postPics.map((postPic, index) => (
-        <div key={index} className="product__thumbnail" onClick={clickHandler}>
+        <div key={index} className="post__thumbnail" onClick={clickHandler}>
           <img src={postPic || productImage} alt="post image" />
         </div>
       ))}

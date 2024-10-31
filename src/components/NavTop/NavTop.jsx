@@ -1,5 +1,5 @@
 import "./NavTop.scss";
-import logo from "../../assets/logo/Vitrine-v5.svg";
+import logo from "../../assets/logo/Vitrine-v6.svg";
 import { Link } from "react-router-dom";
 
 export default function NavTop() {

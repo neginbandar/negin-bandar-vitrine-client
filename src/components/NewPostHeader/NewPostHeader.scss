@@ -1,0 +1,24 @@
+@use "../../partials/variables" as *;
+
+.new-post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.375rem;
+  margin: 0;
+  padding: 0 2rem;
+  border-bottom: 0.5px solid lightgray;
+
+  .button {
+    background-color: white;
+    color: $purple-primary;
+    width: fit-content;
+
+    &--submit {
+      background-color: $purple-primary;
+      color: white;
+      width: 60px;
+      height: 30px;
+    }
+  }
+}

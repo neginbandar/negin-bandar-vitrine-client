@@ -51,7 +51,12 @@ export default function PostUploadPage() {
 
   return (
     <div className="post-upload__container">
-      <h3 className="post-upload__title">Create Post</h3>
+      <div className="new-post-header">
+        <button className="button button--cancel">Cancel</button>
+        <h4 className="new-post-header__title">Create a new post</h4>
+        <button className="button button--submit">Publish</button>
+      </div>
+
       <form
         method="post"
         encType="multipart/form-data"
@@ -59,35 +64,39 @@ export default function PostUploadPage() {
         onSubmit={uploadImage}
       >
         <div className="post-upload__field">
-          <label htmlFor="Upload">Upload Image</label>
-          <input
-            type="file"
-            className="form-control-file "
-            name="post-image"
-            onChange={handleImageChange}
-          />
-          <button
-            type="upload"
-            className="button button--small"
-            onClick={uploadImage}
-          >
-            Upload Photo
-          </button>
+          <label htmlFor="Upload">Upload Post Photo</label>
+          <div className="post-upload__align">
+            <input
+              type="file"
+              className="form-control-file "
+              name="post-image"
+              onChange={handleImageChange}
+            />
+            <button
+              type="upload"
+              className="button button--upload"
+              onClick={uploadImage}
+            >
+              Upload Photo
+            </button>
+          </div>
         </div>
       </form>
-      <h4>Add Product</h4>
+      <h5>Product Information</h5>
       <AddProduct />
-      <button
-        className="button button--small"
-        type="button "
-        onClick={addProductHandler}
-      >
-        Add Product
-      </button>
       {products}
-      <button className="button" type="submit">
-        Submit Post
-      </button>
+      <div className="button-group">
+        <button
+          className="button button--left"
+          type="button "
+          onClick={addProductHandler}
+        >
+          Add New Product
+        </button>
+        <button className="button button--right" type="submit">
+          Publish Post
+        </button>
+      </div>
       <div className="white-space"></div>
     </div>
   );
